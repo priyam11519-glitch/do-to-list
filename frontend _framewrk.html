@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
+<center>
+<h1>To-Do-List</h1>
+<input type="text" id="task" placeholder="Enter your task">
+<button onclick="add()">Create</button>
+<h2>Task List</h2>
+<div id="list"></div>
+<script>
+function add()
+{
+    let a = document.getElementById("task").value;
+
+    if(a == "")
+    {
+        alert("Enter Task");
+    }
+    else
+    {
+        document.getElementById("success")?.remove();
+        let b = document.createElement("div");
+        b.innerHTML = "<p>" + a + "</p>" +
+        '<button onclick="this.parentElement.firstChild.style.textDecoration=\'line-through\'">Complete</button>' +
+        '<button onclick="this.parentElement.remove(); document.getElementById(\'success\')?.remove()">Delete</button>';
+        document.getElementById("list").appendChild(b);
+        document.getElementById("task").value = "";
+        let priya = document.createElement("h1");
+        priya.textContent = "Successfully Created";
+        priya.id = "success";
+        document.getElementById("list").appendChild(priya);
+    }
+}
+</script>
+</center>
+</body>
+</html>
